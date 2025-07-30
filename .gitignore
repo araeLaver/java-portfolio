@@ -1,6 +1,6 @@
 # Maven
 /target/
-# .mvn/wrapper/maven-wrapper.jar
+# Keep maven wrapper jar for deployment
 
 # STS / Eclipse
 .classpath
