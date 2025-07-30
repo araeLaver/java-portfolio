@@ -26,3 +26,4 @@ thumbs.db
 
 # Data file (if outside resources)
 /data/
+.claude/
