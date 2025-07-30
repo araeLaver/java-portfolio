@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${project.title} + ' - My Portfolio'">Project Details</title>
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/">My Portfolio</a>
+            <div class="nav-links">
+                <a href="/">프로젝트</a>
+                <a href="/admin">관리자</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container main-content">
+        <div th:if="${project}" class="project-detail-section">
+            <h1 th:text="${project.title}">프로젝트 제목</h1>
+            <p class="project-description" th:text="${project.description}">프로젝트 설명</p>
+
+            <div class="tech-stack">
+                <strong>기술 스택:</strong>
+                <span th:each="tech : ${project.stack}" class="badge" th:text="${tech}"></span>
+            </div>
+
+            <div class="project-links">
+                <a th:if="${project.gitUrl}" th:href="${project.gitUrl}" target="_blank" class="btn-primary">GitHub</a>  <!-- btn-secondary -->
+                <a th:if="${project.liveUrl}" th:href="${project.liveUrl}" target="_blank" class="btn-primary">Live Demo</a>
+            </div>
+
+            <hr>
+
+            <div class="markdown-content" th:utext="${project.details}">
+                <!-- Markdown content will be rendered here -->
+            </div>
+
+        </div>
+        <div th:unless="${project}" class="error-message">
+            <p>프로젝트를 찾을 수 없습니다.</p>
+        </div>
+        <a href="/" class="btn-back">목록으로 돌아가기</a>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

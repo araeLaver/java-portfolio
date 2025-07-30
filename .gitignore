@@ -1,0 +1,28 @@
+# Maven
+/target/
+.mvn/wrapper/maven-wrapper.jar
+
+# STS / Eclipse
+.classpath
+.project
+.settings/
+.sts4-cache/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# OS
+.DS_Store
+thumbs.db
+
+# Logs
+*.log
+
+# Temp
+*.tmp
+
+# Data file (if outside resources)
+/data/

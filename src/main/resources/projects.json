@@ -1,0 +1,20 @@
+[
+  {
+    "id": "project-1",
+    "title": "첫 번째 프로젝트",
+    "description": "이것은 저의 첫 번째 포트폴리오 프로젝트입니다. 최신 기술 스택을 사용하여 만들었습니다.",
+    "gitUrl": "https://github.com/your-username/project-1",
+    "liveUrl": "https://project-1.your-domain.com",
+    "stack": ["Java", "Spring Boot", "Thymeleaf"],
+    "details": "## 프로젝트 개요\n\n이 프로젝트는..."
+  },
+  {
+    "id": "project-2",
+    "title": "두 번째 프로젝트",
+    "description": "사용자 인증 및 실시간 채팅 기능을 구현한 웹 애플리케이션입니다.",
+    "gitUrl": "https://github.com/your-username/project-2",
+    "liveUrl": null,
+    "stack": ["Java", "Spring WebSocket", "React"],
+    "details": "## 주요 기능\n\n- 실시간 채팅\n- JWT 기반 인증"
+  }
+]
