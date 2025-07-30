@@ -42,7 +42,7 @@ WRAPPER_URL=$(grep -e "^distributionUrl=.*" "$MAVEN_WRAPPER_PROPERTIES" | cut -d
 
 MAVEN_CMD_LINE_ARGS="$@"
 
-"$JAVA_HOME/bin/java" \
+exec ${JAVA_HOME:+$JAVA_HOME/bin/}java \
     -Dmaven.multiModuleProjectDirectory="$MAVEN_PROJECT_BASE_DIR" \
     -Dmaven.wrapper.jar="$MAVEN_WRAPPER_JAR" \
     -Dmaven.wrapper.properties="$MAVEN_WRAPPER_PROPERTIES" \

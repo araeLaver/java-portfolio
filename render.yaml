@@ -3,10 +3,18 @@ services:
     name: java-portfolio
     env: java
     plan: free
-    buildCommand: chmod +x ./mvnw && ./mvnw clean package -DskipTests || mvn clean package -DskipTests
+    buildCommand: |
+      echo "Java version check:"
+      java -version
+      echo "Setting up Maven wrapper:"
+      chmod +x ./mvnw
+      echo "Building with Maven:"
+      ./mvnw clean package -DskipTests -B
     startCommand: java -Dserver.port=$PORT -jar target/portfolio-app-0.0.1-SNAPSHOT.jar
     envVars:
       - key: JAVA_VERSION
         value: 17
       - key: MAVEN_OPTS
-        value: "-Xmx512m"
+        value: "-Xmx1024m -XX:MaxMetaspaceSize=256m"
+      - key: PATH
+        value: "$JAVA_HOME/bin:$PATH"
