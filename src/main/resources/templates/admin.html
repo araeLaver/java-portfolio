@@ -26,10 +26,22 @@
 
         <div class="form-section">
             <h2 th:text="${newProject.id == null ? '새 프로젝트 추가' : '프로젝트 수정'}"></h2>
+            
+            <!-- 에러 메시지 표시 -->
+            <div th:if="${error}" class="error-message" style="color: red; margin-bottom: 20px; padding: 10px; border: 1px solid red; border-radius: 4px; background-color: #ffebee;">
+                <p th:text="${error}"></p>
+            </div>
+            
             <form th:action="@{/admin/save}" th:object="${newProject}" method="post">
-                <input type="hidden" th:field="*{id}" />
+                <div class="form-group" th:if="${newProject.id == null or newProject.id == ''}">
+                    <label for="projectId">프로젝트 ID *</label>
+                    <input type="text" id="projectId" th:field="*{id}" required placeholder="예: project-1">
+                    <small>URL에 사용될 고유 ID입니다. (영문, 숫자, 하이픈만 사용)</small>
+                </div>
+                <input th:if="${newProject.id != null and newProject.id != ''}" type="hidden" th:field="*{id}" />
+                
                 <div class="form-group">
-                    <label for="title">제목</label>
+                    <label for="title">제목 *</label>
                     <input type="text" id="title" th:field="*{title}" required>
                 </div>
                 <div class="form-group">
