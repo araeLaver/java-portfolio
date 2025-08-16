@@ -19,5 +19,5 @@ RUN mvn clean package -DskipTests -B
 # Expose port
 EXPOSE 8080
 
-# Run the application
-CMD ["java", "-Dserver.port=${PORT:-8080}", "-jar", "target/portfolio-app-0.0.1-SNAPSHOT.jar"]
+# Run the application with memory optimization
+CMD ["java", "-Xmx400m", "-XX:+UseG1GC", "-Dserver.port=${PORT:-8080}", "-jar", "target/portfolio-app-0.0.1-SNAPSHOT.jar"]
