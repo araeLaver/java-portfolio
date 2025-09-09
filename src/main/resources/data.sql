@@ -28,3 +28,56 @@ SELECT 'daily-messages-app', '데일리 메시지 앱', '매일 새로운 메시
 - 반응형 웹 디자인
 - 관리자 패널'
 WHERE NOT EXISTS (SELECT 1 FROM java_portfolio.projects WHERE id = 'daily-messages-app');
+
+INSERT INTO java_portfolio.projects (id, title, description, git_url, live_url, details) 
+SELECT 'theme-gallery', 'Theme Gallery - 테마 기반 이미지 갤러리', '64개 테마와 768개의 고품질 이미지를 제공하는 React 기반 이미지 갤러리입니다. PWA를 지원하며 다운로드, 검색, 필터링 등 다양한 기능을 제공합니다.', 'https://github.com/araeLaver/theme-gallery', 'https://theme-gallery-production.vercel.app/', '# Theme Gallery
+
+64개의 테마와 768개의 엄선된 고품질 이미지를 제공하는 현대적인 이미지 갤러리 웹 애플리케이션입니다.
+
+## 🎨 주요 기능
+
+### 테마 기반 이미지 브라우징
+- **64개 테마 카테고리**: 자연, 건축, 음식, 동물, 기술 등 다양한 테마
+- **테마별 12개 이미지**: 각 테마마다 신중하게 선택된 고품질 이미지
+
+### 고급 검색 시스템
+- **실시간 검색**: 입력과 동시에 결과 표시
+- **스마트 필터링**: 이미지 태그와 alt 텍스트를 통한 지능형 검색
+- **카테고리별 필터**: 원하는 테마로 빠른 필터링
+
+### 다운로드 기능
+- **단일/대량 다운로드**: 개별 이미지 또는 전체 테마 다운로드
+- **CORS 우회 로직**: 외부 이미지 다운로드 최적화
+- **자동 파일명 생성**: 의미 있는 파일명 자동 생성
+
+### PWA 지원
+- **오프라인 기능**: 인터넷 연결 없이도 이용 가능
+- **모바일 앱 설치**: 홈 화면에 앱으로 설치 가능
+- **푸시 알림**: 새 이미지 업데이트 알림
+
+## 🛠️ 기술 스택
+
+### Frontend
+- **React 18.2.0**: 최신 React 기능 활용
+- **TypeScript 4.9.5**: 타입 안전성 보장
+- **Tailwind CSS 3.3.0**: 유틸리티 우선 CSS 프레임워크
+
+### 사용자 경험
+- **Framer Motion 10.16.4**: 부드러운 애니메이션과 전환 효과
+- **Lazy Loading**: 이미지 지연 로딩으로 성능 최적화
+- **Infinite Scroll**: 무한 스크롤로 seamless한 브라우징
+- **Responsive Design**: 모든 기기에서 완벽한 화면 대응
+
+## 📱 성능 최적화
+
+- **이미지 최적화**: WebP 포맷 지원 및 압축
+- **SEO 최적화**: 검색 엔진 친화적 구조
+- **Progressive Loading**: 점진적 콘텐츠 로딩
+- **캐싱 전략**: 효율적인 리소스 관리
+
+## 🚀 배포 & 인프라
+
+- **Vercel 배포**: 글로벌 CDN을 통한 빠른 로딩
+- **자동 배포**: Git push 시 자동 빌드 및 배포
+- **성능 모니터링**: 실시간 성능 지표 추적'
+WHERE NOT EXISTS (SELECT 1 FROM java_portfolio.projects WHERE id = 'theme-gallery');
