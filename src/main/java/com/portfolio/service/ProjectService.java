@@ -5,6 +5,7 @@ import com.portfolio.entity.ProjectEntity;
 import com.portfolio.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,15 +29,27 @@ public class ProjectService {
         this.renderer = HtmlRenderer.builder().build();
     }
 
+    @Transactional(readOnly = true)
     public List<Project> getProjects() {
         return projectRepository.findAll().stream()
-                .map(this::convertToDto)
+                .map(entity -> {
+                    // Force loading of lazy collection
+                    if (entity.getStack() != null) {
+                        entity.getStack().size(); // Force initialization
+                    }
+                    return convertToDto(entity);
+                })
                 .collect(Collectors.toList());
     }
 
+    @Transactional(readOnly = true)
     public Optional<Project> getProjectById(String id) {
         return projectRepository.findById(id)
                 .map(entity -> {
+                    // Force loading of lazy collection
+                    if (entity.getStack() != null) {
+                        entity.getStack().size(); // Force initialization
+                    }
                     Project project = convertToDto(entity);
                     if (project.getDetails() != null) {
                         Node document = parser.parse(project.getDetails());

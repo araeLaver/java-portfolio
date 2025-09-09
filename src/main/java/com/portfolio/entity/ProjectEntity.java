@@ -22,7 +22,7 @@ public class ProjectEntity {
     @Column(name = "live_url")
     private String liveUrl;
     
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "project_stack", schema = "java_portfolio", joinColumns = @JoinColumn(name = "project_id"))
     @Column(name = "technology")
     private List<String> stack;
