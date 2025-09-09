@@ -16,5 +16,4 @@ BEGIN
 - 사용자 관리 시스템'
         WHERE NOT EXISTS (SELECT 1 FROM java_portfolio.projects WHERE id = 'project-2');
     END IF;
-END
-$$;
+END $$;
