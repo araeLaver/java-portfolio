@@ -68,3 +68,13 @@ INSERT INTO java_portfolio.project_stack (project_id, technology) VALUES
 ('java-portfolio-web', 'PostgreSQL'),
 ('java-portfolio-web', 'Railway'),
 ('java-portfolio-web', 'Docker');
+
+-- Daily Messages React App Stack
+INSERT INTO java_portfolio.project_stack (project_id, technology) VALUES
+('daily-messages-react', 'React 18'),
+('daily-messages-react', 'Tailwind CSS'),
+('daily-messages-react', 'FastAPI'),
+('daily-messages-react', 'Python'),
+('daily-messages-react', 'PostgreSQL'),
+('daily-messages-react', 'Netlify'),
+('daily-messages-react', 'Koyeb');

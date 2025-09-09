@@ -362,3 +362,80 @@ SELECT 'java-portfolio-web', 'Java Portfolio - 개인 포트폴리오 웹사이�
 
 이 프로젝트는 **메타 프로젝트**입니다 - 포트폴리오를 보여주기 위한 포트폴리오 사이트 자체가 하나의 프로젝트인 셈이죠! Spring Boot의 강력함과 현대적 웹 개발 기술을 실제로 적용한 살아있는 예시입니다.'
 WHERE NOT EXISTS (SELECT 1 FROM java_portfolio.projects WHERE id = 'java-portfolio-web');
+
+-- Daily Messages App Project (React + FastAPI version)
+INSERT INTO java_portfolio.projects (id, title, description, git_url, live_url, details) 
+SELECT 'daily-messages-react', 'Daily Messages - 영감을 주는 일일 명언 앱', 'React와 FastAPI를 활용한 일일 영감 명언 제공 웹 애플리케이션입니다. 15개 카테고리의 190+ 명언을 제공하며, 글래스모피즘 디자인과 즐겨찾기 기능을 지원합니다.', 'https://github.com/araeLaver/daily-messages-app', 'https://daily-messages-production.netlify.app/', '# Daily Messages - 일일 영감 명언
+
+매일 새로운 영감을 전달하는 현대적인 명언 애플리케이션입니다.
+
+## ✨ 핵심 기능
+
+### 일일 명언 시스템
+- **날짜 기반 고정 명언**: 매일 동일한 날짜에 같은 명언 제공
+- **지능적 중복 방지**: 스마트한 명언 선택 메커니즘
+- **15개 카테고리**: 동기부여, 성공, 행복, 사랑 등 다양한 주제
+- **190+ 명언 데이터베이스**: 지속적으로 확장되는 명언 컬렉션
+
+### 사용자 경험
+- **즐겨찾기 기능**: 마음에 드는 명언 저장
+- **카테고리별 탐색**: 원하는 주제의 명언 쉽게 찾기
+- **반응형 디자인**: 모바일, 태블릿, 데스크톱 최적화
+- **접근성 지원**: 모든 사용자를 위한 웹 접근성
+
+### 현대적 디자인
+- **글래스모피즘 UI**: \"React Bits\" 스타일의 세련된 디자인
+- **부드러운 애니메이션**: 자연스러운 사용자 인터페이스
+- **직관적 네비게이션**: 쉽고 빠른 명언 탐색
+
+## 🛠️ 기술 스택
+
+### 프론트엔드
+- **React 18**: 최신 React 기능 활용
+- **Tailwind CSS**: 유틸리티 우선 스타일링
+- **코드 스플리팅**: 빠른 로딩을 위한 지연 로딩
+- **PWA 준비**: Progressive Web App 기능 준비
+
+### 백엔드
+- **FastAPI + Python**: 빠르고 현대적인 API 서버
+- **PostgreSQL**: Koyeb 호스팅 데이터베이스
+- **RESTful API**: 표준화된 API 설계
+
+### 배포 & 인프라
+- **Netlify**: 프론트엔드 배포 및 CDN
+- **Koyeb**: 백엔드 API 서버 호스팅
+- **PostgreSQL on Koyeb**: 매니지드 데이터베이스
+
+## ⚡ 성능 & 최적화
+
+### 응답 성능
+- **200ms 미만 응답**: 빠른 API 응답 시간
+- **99.9% 업타임**: 안정적인 서비스 가용성
+- **글로벌 CDN**: 전 세계 빠른 콘텐츠 전송
+
+### 최적화 기법
+- **코드 스플리팅**: 필요한 코드만 로드
+- **이미지 최적화**: WebP 포맷 지원
+- **캐싱 전략**: 효율적인 리소스 관리
+- **번들 최적화**: 최소화된 JavaScript 번들
+
+## 🚀 미래 계획
+
+### 예정된 기능
+- **PWA 완전 지원**: 오프라인 사용 가능
+- **사용자 계정 시스템**: 개인화된 명언 추천
+- **다국어 지원**: 여러 언어로 명언 제공
+- **AI 기반 추천**: 사용자 선호도 기반 명언 추천
+
+### 데이터 확장
+- **500개 목표**: 명언 데이터베이스 확장
+- **새로운 카테고리**: 더 다양한 주제 추가
+- **사용자 기여**: 커뮤니티 명언 제출 기능
+
+## 💡 독특한 특징
+
+- **일관된 일일 경험**: 같은 날짜에 항상 동일한 명언
+- **감정 기반 카테고리**: 사용자의 현재 기분에 맞는 명언
+- **미니멀한 인터페이스**: 명언에 집중할 수 있는 깔끔한 디자인
+- **빠른 액세스**: 즉시 로딩되는 일일 명언'
+WHERE NOT EXISTS (SELECT 1 FROM java_portfolio.projects WHERE id = 'daily-messages-react');
