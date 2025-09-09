@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "projects", schema = "portfolio")
+@Table(name = "projects", schema = "java_portfolio")
 public class ProjectEntity {
     
     @Id
@@ -23,7 +23,7 @@ public class ProjectEntity {
     private String liveUrl;
     
     @ElementCollection
-    @CollectionTable(name = "project_stack", schema = "portfolio", joinColumns = @JoinColumn(name = "project_id"))
+    @CollectionTable(name = "project_stack", schema = "java_portfolio", joinColumns = @JoinColumn(name = "project_id"))
     @Column(name = "technology")
     private List<String> stack;
     
