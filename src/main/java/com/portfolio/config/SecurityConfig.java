@@ -19,6 +19,7 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(authorize -> authorize
                 .requestMatchers("/admin/**").authenticated() // /admin 경로만 인증 필요
+                .requestMatchers("/css/**", "/js/**", "/images/**", "/favicon.ico").permitAll() // 정적 리소스 허용
                 .anyRequest().permitAll() // 그 외 모든 요청은 허용
             )
             .formLogin(form -> form
@@ -28,6 +29,9 @@ public class SecurityConfig {
             )
             .logout(logout -> logout
                 .permitAll()
+            )
+            .exceptionHandling(exceptions -> exceptions
+                .accessDeniedPage("/") // 접근 거부 시 홈으로 리다이렉트
             );
         return http.build();
     }
