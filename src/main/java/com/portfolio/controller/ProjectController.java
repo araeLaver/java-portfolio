@@ -23,12 +23,19 @@ public class ProjectController {
 
     @GetMapping("/projects/{id}")
     public String projectDetails(@PathVariable String id, Model model) {
-        return projectService.getProjectById(id)
-                .map(project -> {
-                    model.addAttribute("project", project);
-                    return "project-details";
-                })
-                .orElse("redirect:/"); // Not found, redirect to home
+        try {
+            return projectService.getProjectById(id)
+                    .map(project -> {
+                        model.addAttribute("project", project);
+                        return "project-details";
+                    })
+                    .orElse("redirect:/"); // Not found, redirect to home
+        } catch (Exception e) {
+            // Log the error for debugging
+            System.err.println("Error loading project with ID: " + id + " - " + e.getMessage());
+            e.printStackTrace();
+            return "redirect:/"; // Redirect to home on error
+        }
     }
 
     @GetMapping("/login")
