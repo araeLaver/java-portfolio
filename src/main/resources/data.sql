@@ -1,20 +1,20 @@
--- Insert initial data only if table exists and is empty
-INSERT INTO java_portfolio.projects (id, title, description, git_url, live_url, details)
-SELECT 'project-1', '첫 번째 프로젝트', '이것은 저의 첫 번째 포트폴리오 프로젝트입니다. 최신 기술 스택을 사용하여 만들었습니다.', 'https://github.com/your-username/project-1', 'https://project-1.your-domain.com', '## 프로젝트 개요
+-- Clear existing data and insert fresh portfolio data
+DELETE FROM java_portfolio.project_stack;
+DELETE FROM java_portfolio.projects;
 
-이 프로젝트는 Spring Boot와 현대적인 웹 기술을 활용한 포트폴리오 시스템입니다.'
-WHERE NOT EXISTS (SELECT 1 FROM java_portfolio.projects WHERE id = 'project-1');
+-- Insert comprehensive portfolio projects
+INSERT INTO java_portfolio.projects (id, title, description, git_url, live_url, details) VALUES
+('project-1', '첫 번째 프로젝트', '이것은 저의 첫 번째 포트폴리오 프로젝트입니다. 최신 기술 스택을 사용하여 만들었습니다.', 'https://github.com/your-username/project-1', 'https://project-1.your-domain.com', '## 프로젝트 개요
 
-INSERT INTO java_portfolio.projects (id, title, description, git_url, live_url, details) 
-SELECT 'project-2', '두 번째 프로젝트', '사용자 인증 및 실시간 채팅 기능을 구현한 웹 애플리케이션입니다.', 'https://github.com/your-username/project-2', NULL, '## 주요 기능
+이 프로젝트는 Spring Boot와 현대적인 웹 기술을 활용한 포트폴리오 시스템입니다.'),
+
+('project-2', '두 번째 프로젝트', '사용자 인증 및 실시간 채팅 기능을 구현한 웹 애플리케이션입니다.', 'https://github.com/your-username/project-2', NULL, '## 주요 기능
 
 - 실시간 채팅
 - JWT 기반 인증
-- 사용자 관리 시스템'
-WHERE NOT EXISTS (SELECT 1 FROM java_portfolio.projects WHERE id = 'project-2');
+- 사용자 관리 시스템'),
 
-INSERT INTO java_portfolio.projects (id, title, description, git_url, live_url, details) 
-SELECT 'daily-messages-app', '데일리 메시지 앱', '매일 새로운 메시지를 받아볼 수 있는 웹 애플리케이션입니다. 사용자들이 개인적인 일일 메시지를 작성하고 관리할 수 있습니다.', 'https://github.com/your-username/daily-messages-app', 'https://java-portfolio-production.up.railway.app/', '## 프로젝트 특징
+('daily-messages-app', '데일리 메시지 앱', '매일 새로운 메시지를 받아볼 수 있는 웹 애플리케이션입니다. 사용자들이 개인적인 일일 메시지를 작성하고 관리할 수 있습니다.', 'https://github.com/your-username/daily-messages-app', 'https://java-portfolio-production.up.railway.app/', '## 프로젝트 특징
 
 - **일일 메시지 관리**: 매일 새로운 메시지를 작성하고 확인
 - **Spring Boot**: 백엔드 프레임워크로 RESTful API 구현
@@ -26,11 +26,9 @@ SELECT 'daily-messages-app', '데일리 메시지 앱', '매일 새로운 메시
 - 메시지 작성 및 편집
 - 날짜별 메시지 조회
 - 반응형 웹 디자인
-- 관리자 패널'
-WHERE NOT EXISTS (SELECT 1 FROM java_portfolio.projects WHERE id = 'daily-messages-app');
+- 관리자 패널'),
 
-INSERT INTO java_portfolio.projects (id, title, description, git_url, live_url, details) 
-SELECT 'theme-gallery', 'Theme Gallery - 테마 기반 이미지 갤러리', '64개 테마와 768개의 고품질 이미지를 제공하는 React 기반 이미지 갤러리입니다. PWA를 지원하며 다운로드, 검색, 필터링 등 다양한 기능을 제공합니다.', 'https://github.com/araeLaver/theme-gallery', 'https://theme-gallery-production.vercel.app/', '# Theme Gallery
+('theme-gallery', 'Theme Gallery - 테마 기반 이미지 갤러리', '64개 테마와 768개의 고품질 이미지를 제공하는 React 기반 이미지 갤러리입니다. PWA를 지원하며 다운로드, 검색, 필터링 등 다양한 기능을 제공합니다.', 'https://github.com/araeLaver/theme-gallery', 'https://theme-gallery-production.vercel.app/', '# Theme Gallery
 
 64개의 테마와 768개의 엄선된 고품질 이미지를 제공하는 현대적인 이미지 갤러리 웹 애플리케이션입니다.
 
@@ -79,12 +77,9 @@ SELECT 'theme-gallery', 'Theme Gallery - 테마 기반 이미지 갤러리', '64
 
 - **Vercel 배포**: 글로벌 CDN을 통한 빠른 로딩
 - **자동 배포**: Git push 시 자동 빌드 및 배포
-- **성능 모니터링**: 실시간 성능 지표 추적'
-WHERE NOT EXISTS (SELECT 1 FROM java_portfolio.projects WHERE id = 'theme-gallery');
+- **성능 모니터링**: 실시간 성능 지표 추적'),
 
--- Simple Chat Server Project
-INSERT INTO java_portfolio.projects (id, title, description, git_url, live_url, details) 
-SELECT 'simple-chat-server', 'SecureChat - 실시간 보안 채팅 애플리케이션', '다중 채팅룸, AES-256 암호화, 자동 메시지 삭제 기능을 지원하는 Java Spring Boot 기반의 실시간 보안 채팅 애플리케이션입니다.', 'https://github.com/araeLaver/simple-chat-server', 'https://securechat-production.koyeb.app/', '# SecureChat - 실시간 보안 채팅
+('simple-chat-server', 'SecureChat - 실시간 보안 채팅 애플리케이션', '다중 채팅룸, AES-256 암호화, 자동 메시지 삭제 기능을 지원하는 Java Spring Boot 기반의 실시간 보안 채팅 애플리케이션입니다.', 'https://github.com/araeLaver/simple-chat-server', 'https://securechat-production.koyeb.app/', '# SecureChat - 실시간 보안 채팅
 
 고급 보안 기능과 뛰어난 사용자 경험을 제공하는 실시간 채팅 애플리케이션입니다.
 
@@ -126,12 +121,9 @@ SELECT 'simple-chat-server', 'SecureChat - 실시간 보안 채팅 애플리케�
 - **커넥션 풀 최적화**: 효율적인 데이터베이스 연결
 - **JPA 배치 처리**: 대량 데이터 처리 최적화
 - **최소 번들 크기**: 빠른 로딩 속도
-- **Service Worker 캐싱**: 오프라인 지원'
-WHERE NOT EXISTS (SELECT 1 FROM java_portfolio.projects WHERE id = 'simple-chat-server');
+- **Service Worker 캐싱**: 오프라인 지원'),
 
--- Reactun Lottery Project
-INSERT INTO java_portfolio.projects (id, title, description, git_url, live_url, details) 
-SELECT 'reactun', 'Reactun - 로또 번호 생성 및 분석 시스템', '고급 랜덤 알고리즘과 실시간 데이터 스크래핑을 활용한 로또 번호 생성 및 통계 분석 시스템입니다. React와 Node.js 풀스택 애플리케이션입니다.', 'https://github.com/araeLaver/reactun', 'https://reactun.vercel.app/', '# Reactun - 로또 번호 생성 & 분석
+('reactun', 'Reactun - 로또 번호 생성 및 분석 시스템', '고급 랜덤 알고리즘과 실시간 데이터 스크래핑을 활용한 로또 번호 생성 및 통계 분석 시스템입니다. React와 Node.js 풀스택 애플리케이션입니다.', 'https://github.com/araeLaver/reactun', 'https://reactun.vercel.app/', '# Reactun - 로또 번호 생성 & 분석
 
 고급 알고리즘과 실시간 데이터 분석을 결합한 종합적인 로또 시스템입니다.
 
@@ -173,12 +165,9 @@ SELECT 'reactun', 'Reactun - 로또 번호 생성 및 분석 시스템', '고급
 - **대용량 처리**: 10,000+ 번호 생성 및 분석
 - **빠른 응답**: 평균 200ms 이하 응답 시간
 - **모바일 최적화**: 모바일 퍼스트 반응형 디자인
-- **코드 최적화**: React.memo() 및 코드 스플리팅 적용'
-WHERE NOT EXISTS (SELECT 1 FROM java_portfolio.projects WHERE id = 'reactun');
+- **코드 최적화**: React.memo() 및 코드 스플리팅 적용'),
 
--- Idea Manager Project
-INSERT INTO java_portfolio.projects (id, title, description, git_url, live_url, details) 
-SELECT 'idea-manager', 'Idea Manager - 아이디어 체계적 관리 도구', '창업가와 개발자를 위한 비즈니스 아이디어 체계적 관리 웹 애플리케이션입니다. React 18, TypeScript, Vite로 구축된 현대적인 아이디어 트래킹 시스템입니다.', 'https://github.com/araeLaver/idea-manager', 'https://idea-manager-production.vercel.app/', '# Idea Manager - 체계적 아이디어 관리
+('idea-manager', 'Idea Manager - 아이디어 체계적 관리 도구', '창업가와 개발자를 위한 비즈니스 아이디어 체계적 관리 웹 애플리케이션입니다. React 18, TypeScript, Vite로 구축된 현대적인 아이디어 트래킹 시스템입니다.', 'https://github.com/araeLaver/idea-manager', 'https://idea-manager-production.vercel.app/', '# Idea Manager - 체계적 아이디어 관리
 
 창업가, 개발자, 창의적 전문가를 위한 구조화된 아이디어 캡처 및 개발 도구입니다.
 
@@ -229,12 +218,9 @@ SELECT 'idea-manager', 'Idea Manager - 아이디어 체계적 관리 도구', '�
 
 ### 포괄적 메타데이터
 - **상세한 아이디어 추적**: 생성일, 수정일, 상태, 우선순위
-- **태그 시스템**: 유연한 아이디어 분류'
-WHERE NOT EXISTS (SELECT 1 FROM java_portfolio.projects WHERE id = 'idea-manager');
+- **태그 시스템**: 유연한 아이디어 분류'),
 
--- Unble Budget App Project
-INSERT INTO java_portfolio.projects (id, title, description, git_url, live_url, details) 
-SELECT 'unble-budget-app', 'Unble Budget - 스마트 가계부 애플리케이션', 'Spring Boot와 JWT 인증을 활용한 개인 및 가족용 재정 관리 애플리케이션입니다. 수입/지출 추적, 월별 통계, 예산 계획 기능을 제공합니다.', 'https://github.com/araeLaver/unble-budget-app', 'https://unble-budget-production.koyeb.app/', '# Unble Budget - 스마트 재정 관리
+('unble-budget-app', 'Unble Budget - 스마트 가계부 애플리케이션', 'Spring Boot와 JWT 인증을 활용한 개인 및 가족용 재정 관리 애플리케이션입니다. 수입/지출 추적, 월별 통계, 예산 계획 기능을 제공합니다.', 'https://github.com/araeLaver/unble-budget-app', 'https://unble-budget-production.koyeb.app/', '# Unble Budget - 스마트 재정 관리
 
 개인과 가족을 위한 포괄적인 재정 추적 및 예산 관리 시스템입니다.
 
@@ -290,12 +276,9 @@ SELECT 'unble-budget-app', 'Unble Budget - 스마트 가계부 애플리케이�
 ### 배포 환경
 - **개발/운영 환경 분리**: Spring Profile 활용
 - **Koyeb 클라우드**: PostgreSQL과 함께 통합 호스팅
-- **포트 9090**: 기본 서버 포트 (설정 가능)'
-WHERE NOT EXISTS (SELECT 1 FROM java_portfolio.projects WHERE id = 'unble-budget-app');
+- **포트 9090**: 기본 서버 포트 (설정 가능)'),
 
--- Java Portfolio Project
-INSERT INTO java_portfolio.projects (id, title, description, git_url, live_url, details) 
-SELECT 'java-portfolio-web', 'Java Portfolio - 개인 포트폴리오 웹사이트', '이 포트폴리오 사이트 자체입니다! Spring Boot, Thymeleaf, PostgreSQL을 활용한 프로젝트 관리 시스템으로, 관리자 인증과 마크다운 지원 기능을 제공합니다.', 'https://github.com/araeLaver/java-portfolio', 'https://java-portfolio-production.up.railway.app/', '# Java Portfolio Web Application
+('java-portfolio-web', 'Java Portfolio - 개인 포트폴리오 웹사이트', '이 포트폴리오 사이트 자체입니다! Spring Boot, Thymeleaf, PostgreSQL을 활용한 프로젝트 관리 시스템으로, 관리자 인증과 마크다운 지원 기능을 제공합니다.', 'https://github.com/araeLaver/java-portfolio', 'https://java-portfolio-production.up.railway.app/', '# Java Portfolio Web Application
 
 바로 지금 보고 계신 이 포트폴리오 웹사이트입니다!
 
@@ -354,18 +337,15 @@ SELECT 'java-portfolio-web', 'Java Portfolio - 개인 포트폴리오 웹사이�
 - **CSRF 보호**: 크로스 사이트 요청 위조 방지
 
 ### 데이터베이스 스키마
-- **java_portfolio.projects 테이블**: 프로젝트 기본 정보
+- **projects 테이블**: 프로젝트 기본 정보
 - **project_stack 테이블**: 기술 스택 정보
 - **스키마 분리**: `java_portfolio` 전용 스키마
 
 ## 🚀 특별한 점
 
-이 프로젝트는 **메타 프로젝트**입니다 - 포트폴리오를 보여주기 위한 포트폴리오 사이트 자체가 하나의 프로젝트인 셈이죠! Spring Boot의 강력함과 현대적 웹 개발 기술을 실제로 적용한 살아있는 예시입니다.'
-WHERE NOT EXISTS (SELECT 1 FROM java_portfolio.projects WHERE id = 'java-portfolio-web');
+이 프로젝트는 **메타 프로젝트**입니다 - 포트폴리오를 보여주기 위한 포트폴리오 사이트 자체가 하나의 프로젝트인 셈이죠! Spring Boot의 강력함과 현대적 웹 개발 기술을 실제로 적용한 살아있는 예시입니다.'),
 
--- Daily Messages App Project (React + FastAPI version)
-INSERT INTO java_portfolio.projects (id, title, description, git_url, live_url, details) 
-SELECT 'daily-messages-react', 'Daily Messages - 영감을 주는 일일 명언 앱', 'React와 FastAPI를 활용한 일일 영감 명언 제공 웹 애플리케이션입니다. 15개 카테고리의 190+ 명언을 제공하며, 글래스모피즘 디자인과 즐겨찾기 기능을 지원합니다.', 'https://github.com/araeLaver/daily-messages-app', 'https://daily-messages-production.netlify.app/', '# Daily Messages - 일일 영감 명언
+('daily-messages-react', 'Daily Messages - 영감을 주는 일일 명언 앱', 'React와 FastAPI를 활용한 일일 영감 명언 제공 웹 애플리케이션입니다. 15개 카테고리의 190+ 명언을 제공하며, 글래스모피즘 디자인과 즐겨찾기 기능을 지원합니다.', 'https://github.com/araeLaver/daily-messages-app', 'https://daily-messages-production.netlify.app/', '# Daily Messages - 일일 영감 명언
 
 매일 새로운 영감을 전달하는 현대적인 명언 애플리케이션입니다.
 
@@ -384,7 +364,7 @@ SELECT 'daily-messages-react', 'Daily Messages - 영감을 주는 일일 명언 
 - **접근성 지원**: 모든 사용자를 위한 웹 접근성
 
 ### 현대적 디자인
-- **글래스모피즘 UI**: \"React Bits\" 스타일의 세련된 디자인
+- **글래스모피즘 UI**: "React Bits" 스타일의 세련된 디자인
 - **부드러운 애니메이션**: 자연스러운 사용자 인터페이스
 - **직관적 네비게이션**: 쉽고 빠른 명언 탐색
 
@@ -437,5 +417,4 @@ SELECT 'daily-messages-react', 'Daily Messages - 영감을 주는 일일 명언 
 - **일관된 일일 경험**: 같은 날짜에 항상 동일한 명언
 - **감정 기반 카테고리**: 사용자의 현재 기분에 맞는 명언
 - **미니멀한 인터페이스**: 명언에 집중할 수 있는 깔끔한 디자인
-- **빠른 액세스**: 즉시 로딩되는 일일 명언'
-WHERE NOT EXISTS (SELECT 1 FROM java_portfolio.projects WHERE id = 'daily-messages-react');
+- **빠른 액세스**: 즉시 로딩되는 일일 명언');
