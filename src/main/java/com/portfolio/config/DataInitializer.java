@@ -16,9 +16,9 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // 빠른 시작을 위해 간단한 프로젝트 2개만 추가
+        // 모든 포트폴리오 프로젝트 추가
         if (projectRepository.count() == 0) {
-            System.out.println("Initializing database with essential projects...");
+            System.out.println("Initializing database with all portfolio projects...");
 
             ProjectEntity themeGallery = new ProjectEntity();
             themeGallery.setId("theme-gallery");
@@ -26,7 +26,7 @@ public class DataInitializer implements CommandLineRunner {
             themeGallery.setDescription("64개 테마와 768개의 고품질 이미지를 제공하는 React 기반 이미지 갤러리입니다.");
             themeGallery.setGitUrl("https://github.com/araeLaver/theme-gallery");
             themeGallery.setLiveUrl("https://theme-gallery-production.vercel.app/");
-            themeGallery.setStack(Arrays.asList("React 18.2.0", "TypeScript 4.9.5", "Tailwind CSS 3.3.0", "PWA", "Vercel"));
+            themeGallery.setStack(Arrays.asList("React 18.2.0", "TypeScript 4.9.5", "Tailwind CSS 3.3.0", "Framer Motion 10.16.4", "PWA", "Vercel"));
             themeGallery.setDetails("# Theme Gallery\n\n64개의 테마와 768개의 엄선된 고품질 이미지를 제공하는 현대적인 이미지 갤러리 웹 애플리케이션입니다.");
 
             ProjectEntity secureChat = new ProjectEntity();
@@ -56,10 +56,40 @@ public class DataInitializer implements CommandLineRunner {
             portfolio.setStack(Arrays.asList("Java 17", "Spring Boot 3.3.2", "Spring Security", "Thymeleaf", "PostgreSQL", "Koyeb"));
             portfolio.setDetails("# Java Portfolio Web Application\n\n바로 지금 보고 계신 이 포트폴리오 웹사이트입니다!");
 
+            ProjectEntity ideaManager = new ProjectEntity();
+            ideaManager.setId("idea-manager");
+            ideaManager.setTitle("Idea Manager - 아이디어 관리 시스템");
+            ideaManager.setDescription("창의적인 아이디어를 체계적으로 관리하고 추적할 수 있는 React 기반 웹 애플리케이션입니다.");
+            ideaManager.setGitUrl("https://github.com/araeLaver/idea-manager");
+            ideaManager.setLiveUrl("https://idea-manager-production.vercel.app/");
+            ideaManager.setStack(Arrays.asList("React 18", "TypeScript", "Vite", "React Router", "Local Storage", "Vercel"));
+            ideaManager.setDetails("# Idea Manager\n\n창의적인 아이디어를 체계적으로 관리하고 발전시킬 수 있는 현대적인 웹 애플리케이션입니다.");
+
+            ProjectEntity unbleBudget = new ProjectEntity();
+            unbleBudget.setId("unble-budget-app");
+            unbleBudget.setTitle("Unble Budget - 개인 가계부 관리 시스템");
+            unbleBudget.setDescription("JWT 인증과 Spring Security를 활용한 안전한 개인 가계부 관리 REST API 서버입니다.");
+            unbleBudget.setGitUrl("https://github.com/araeLaver/unble-budget-app");
+            unbleBudget.setLiveUrl("https://unble-budget-production.koyeb.app/");
+            unbleBudget.setStack(Arrays.asList("Java 17", "Spring Boot 3.2", "Spring Security", "JWT", "PostgreSQL", "Koyeb"));
+            unbleBudget.setDetails("# Unble Budget App\n\n안전하고 효율적인 개인 가계부 관리를 위한 REST API 서버입니다.");
+
+            ProjectEntity dailyMessages = new ProjectEntity();
+            dailyMessages.setId("daily-messages-react");
+            dailyMessages.setTitle("Daily Messages - 일일 메시지 관리 시스템");
+            dailyMessages.setDescription("매일의 소중한 순간을 기록하고 관리할 수 있는 React 기반 일일 메시지 애플리케이션입니다.");
+            dailyMessages.setGitUrl("https://github.com/araeLaver/daily-messages-react");
+            dailyMessages.setLiveUrl("https://daily-start-messages.netlify.app/");
+            dailyMessages.setStack(Arrays.asList("React 18", "Tailwind CSS", "FastAPI", "Python", "PostgreSQL", "Netlify", "Koyeb"));
+            dailyMessages.setDetails("# Daily Messages React App\n\n매일의 소중한 순간과 생각을 기록하고 관리하는 현대적인 웹 애플리케이션입니다.");
+
             projectRepository.save(themeGallery);
             projectRepository.save(secureChat);
             projectRepository.save(reactun);
+            projectRepository.save(ideaManager);
+            projectRepository.save(unbleBudget);
             projectRepository.save(portfolio);
+            projectRepository.save(dailyMessages);
 
             System.out.println("Database initialized with " + projectRepository.count() + " projects.");
         } else {
