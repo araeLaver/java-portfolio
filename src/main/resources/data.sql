@@ -1,5 +1,5 @@
 -- Insert initial data only if table exists and is empty
-INSERT INTO java_portfolio.projects (id, title, description, git_url, live_url, details) 
+INSERT INTO java_portfolio.projects (id, title, description, git_url, live_url, details)
 SELECT 'project-1', '첫 번째 프로젝트', '이것은 저의 첫 번째 포트폴리오 프로젝트입니다. 최신 기술 스택을 사용하여 만들었습니다.', 'https://github.com/your-username/project-1', 'https://project-1.your-domain.com', '## 프로젝트 개요
 
 이 프로젝트는 Spring Boot와 현대적인 웹 기술을 활용한 포트폴리오 시스템입니다.'
@@ -354,7 +354,7 @@ SELECT 'java-portfolio-web', 'Java Portfolio - 개인 포트폴리오 웹사이�
 - **CSRF 보호**: 크로스 사이트 요청 위조 방지
 
 ### 데이터베이스 스키마
-- **projects 테이블**: 프로젝트 기본 정보
+- **java_portfolio.projects 테이블**: 프로젝트 기본 정보
 - **project_stack 테이블**: 기술 스택 정보
 - **스키마 분리**: `java_portfolio` 전용 스키마
 
