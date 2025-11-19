@@ -18,3 +18,10 @@ CREATE TABLE IF NOT EXISTS java_portfolio.project_stack (
     technology VARCHAR(255) NOT NULL,
     FOREIGN KEY (project_id) REFERENCES java_portfolio.projects(id) ON DELETE CASCADE
 );
+
+-- Create indexes for better performance
+CREATE INDEX IF NOT EXISTS idx_project_stack_project_id
+ON java_portfolio.project_stack(project_id);
+
+CREATE INDEX IF NOT EXISTS idx_projects_title
+ON java_portfolio.projects(title);

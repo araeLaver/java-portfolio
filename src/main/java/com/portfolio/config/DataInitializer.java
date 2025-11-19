@@ -2,6 +2,8 @@ package com.portfolio.config;
 
 import com.portfolio.entity.ProjectEntity;
 import com.portfolio.repository.ProjectRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -11,6 +13,8 @@ import java.util.Arrays;
 @Component
 public class DataInitializer implements CommandLineRunner {
 
+    private static final Logger logger = LoggerFactory.getLogger(DataInitializer.class);
+
     @Autowired
     private ProjectRepository projectRepository;
 
@@ -18,7 +22,7 @@ public class DataInitializer implements CommandLineRunner {
     public void run(String... args) throws Exception {
         // 모든 포트폴리오 프로젝트 추가
         if (projectRepository.count() == 0) {
-            System.out.println("Initializing database with all portfolio projects...");
+            logger.info("Initializing database with all portfolio projects...");
 
             ProjectEntity themeGallery = new ProjectEntity();
             themeGallery.setId("theme-gallery");
@@ -91,9 +95,9 @@ public class DataInitializer implements CommandLineRunner {
             projectRepository.save(portfolio);
             projectRepository.save(dailyMessages);
 
-            System.out.println("Database initialized with " + projectRepository.count() + " projects.");
+            logger.info("Database initialized with {} projects.", projectRepository.count());
         } else {
-            System.out.println("Database already contains " + projectRepository.count() + " projects.");
+            logger.info("Database already contains {} projects.", projectRepository.count());
         }
     }
 }

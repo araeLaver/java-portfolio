@@ -58,7 +58,7 @@ public class AdminController {
         return "admin";
     }
 
-    @GetMapping("/delete/{id}")
+    @PostMapping("/delete/{id}")
     public String deleteProject(@PathVariable String id) {
         projectService.deleteProject(id);
         return "redirect:/admin";
