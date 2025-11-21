@@ -357,11 +357,25 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(168, 85, 247, 0.05));
     border-radius: 16px;
     padding: 2rem;
     position: relative;
     overflow: hidden;
+}
+
+/* Project 1: BEAM - Blue/Purple gradient */
+.project-card:nth-child(1) .project-preview {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Project 2: TravelMate - Green/Teal gradient */
+.project-card:nth-child(2) .project-preview {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+/* Project 3: Idea Manager - Orange/Yellow gradient */
+.project-card:nth-child(3) .project-preview {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 }
 
 .project-preview::before {
@@ -371,30 +385,56 @@ a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--gradient-accent);
+    background: rgba(255, 255, 255, 0.1);
     opacity: 0;
     transition: opacity var(--transition-normal);
 }
 
 .project-card:hover .project-preview::before {
-    opacity: 0.1;
+    opacity: 1;
 }
 
 .project-mockup {
     width: 100%;
     height: 100%;
     min-height: 300px;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     border-radius: 12px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: var(--color-text-muted);
-    font-size: 3rem;
-    font-weight: 700;
-    border: 2px solid rgba(0, 212, 255, 0.2);
+    gap: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
     position: relative;
     z-index: 1;
+    transition: all var(--transition-normal);
+}
+
+.project-card:hover .project-mockup {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.project-icon {
+    font-size: 6rem;
+    line-height: 1;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.project-number-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 /* Project Info (Right/Left side with text) */
